@@ -124,13 +124,14 @@
 
 // console.log(ListadoDeAlumnos);
 
-
+// version 1.2
 
 let arr = [];
 let nota = 0;
 let cont = 1;
+let res = 0;
 
-function Alumnos(nombre, nota){
+function Alumnos(nombre, nota, res){
 
   
   nombre = prompt("Ingrese su nombre");
@@ -138,23 +139,24 @@ function Alumnos(nombre, nota){
 
   this.nombre = nombre;
   this.nota = nota;
+  this.res = res;
   
   while(cont < 3){
   
     nota += parseFloat(prompt("Ingrese su nota:"))
 
-    res = nota / 3;
+    this.res = nota / 3;
 
     cont++;    
   }
 
-  console.log(res);
+  // console.log(res);
   
 }
 
-let alumno = new Alumnos(Alumnos.nombre, Alumnos.nota);
+let alumno = new Alumnos(Alumnos.nombre, Alumnos.res);
 
-console.log(alumno)
+console.log(`Nombre: ${alumno.nombre} - Promedio del alumno: ${alumno.res}`); 
 
 
 
