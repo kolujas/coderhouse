@@ -131,33 +131,98 @@ let nota = 0;
 let cont = 1;
 let res = 0;
 
-function Alumnos(nombre, nota, res){
+function Alumnos(nombre, nota, res) {
 
-  
+
   nombre = prompt("Ingrese su nombre");
   nota = parseFloat(prompt("Ingrese su nota:"))
+
+  validarMayorA10();
 
   this.nombre = nombre;
   this.nota = nota;
   this.res = res;
-  
-  while(cont < 3){
-  
+
+  while (cont < 3) {
+
     nota += parseFloat(prompt("Ingrese su nota:"))
+    
+    validarMayorA10();
 
-    this.res = nota / 3;
-
-    cont++;    
+    this.res = nota / 3; 
+    
+    cont++;
   }
 
-  // console.log(res);
+  if (isNaN(this.res)) {
+    console.log("Los campos deben ser de formato numérico");
+    return false;
+  } else if (this.res >= 7) {
+    console.log(`Tu promedio es: ${this.res} felicidades sos un héroe!`);
+  } else {
+    console.log("Tu promedio es: ${this.res} sos un asistente!");
+  }
   
 }
 
-let alumno = new Alumnos(Alumnos.nombre, Alumnos.res);
 
-console.log(`Nombre: ${alumno.nombre} - Promedio del alumno: ${alumno.res}`); 
+const validarMayorA10 = () =>{
+  if (nota > 10) {
+    console.log("Los campos deben ser completados por un número válido entre 1 al 10");
+    return false;
+  }
+}
 
+
+  let alumno = new Alumnos(Alumnos.nombre, Alumnos.res);
+  console.log(`Nombre: ${alumno.nombre} - Promedio del alumno: ${alumno.res}`);
+
+
+
+let bd = [{
+  "id": 1,
+  "nombre": alumno.nombre,
+  "promedio": alumno.res,
+},
+{
+  "id": 2,
+  "nombre": "Lucas",
+  "promedio": 7,
+},
+{
+  "id": 3,
+  "nombre": "Sheila",
+  "promedio": 7.5
+},
+{
+  "id": 4,
+  "nombre": "Leo",
+  "promedio": 8
+},
+{
+  "id": 5,
+  "nombre": "Kelpi",
+  "promedio": 9.5
+}
+  
+]
+
+const mostrarListado = () => {
+
+  const nombresBD = bd.map((el) => el.nombre);
+  console.log(`Listado de alumnos: ${nombresBD}`);
+  
+}
+
+mostrarListado();
+
+
+
+
+
+
+
+// console.log(bd);
 
 
 
