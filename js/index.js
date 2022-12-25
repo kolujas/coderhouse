@@ -124,7 +124,12 @@
 
 // console.log(ListadoDeAlumnos);
 
+
+
+
 // version 1.2
+
+// SEGUNDA ENTREGA
 
 let arr = [];
 let nota = 0;
@@ -166,6 +171,8 @@ function Alumnos(nombre, nota, res) {
 }
 
 
+// validar que no sea mayor a 10
+
 const validarMayorA10 = () =>{
   if (nota > 10) {
     console.log("Los campos deben ser completados por un número válido entre 1 al 10");
@@ -178,6 +185,7 @@ const validarMayorA10 = () =>{
   console.log(`Nombre: ${alumno.nombre} - Promedio del alumno: ${alumno.res}`);
 
 
+// bd
 
 let bd = [{
   "id": 1,
@@ -207,6 +215,8 @@ let bd = [{
   
 ]
 
+// Mostrar listado de alumnos
+
 const mostrarListado = () => {
 
   const nombresBD = bd.map((el) => el.nombre);
@@ -215,14 +225,6 @@ const mostrarListado = () => {
 }
 
 mostrarListado();
-
-
-
-
-
-
-
-// console.log(bd);
 
 
 
