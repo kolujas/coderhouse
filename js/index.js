@@ -136,6 +136,13 @@ let nota = 0;
 let cont = 1;
 let res = 0;
 
+
+const datos = document.querySelector('.datos');
+const nombre = document.querySelector('.nombre');
+const promedio = document.querySelector('.promedio');
+
+
+
 function Alumnos(nombre, nota, res) {
 
 
@@ -167,6 +174,13 @@ function Alumnos(nombre, nota, res) {
   } else {
     console.log("Tu promedio es: ${this.res} sos un asistente!");
   }
+
+
+  // datos guardados en LS
+
+  localStorage.setItem(this.nombre, this.res);
+  var lsData = localStorage.getItem(this.nombre, this.res);
+  console.log(lsData)
   
 }
 
@@ -182,7 +196,10 @@ const validarMayorA10 = () =>{
 
 
   let alumno = new Alumnos(Alumnos.nombre, Alumnos.res);
-  console.log(`Nombre: ${alumno.nombre} - Promedio del alumno: ${alumno.res}`);
+  // console.log(`Nombre: ${alumno.nombre} - Promedio del alumno: ${alumno.res}`);
+  nombre.innerHTML = `Alumno: ${alumno.nombre}`;
+  promedio.innerHTML = `Tu promedio es: ${alumno.res}`;
+
 
 
 // bd
@@ -215,17 +232,41 @@ let bd = [{
   
 ]
 
+
+let db = [...bd];
+
+
+
 // Mostrar listado de alumnos
 
-const mostrarListado = () => {
-
-  const nombresBD = bd.map((el) => el.nombre);
-  console.log(`Listado de alumnos: ${nombresBD}`);
-  
-}
-
-mostrarListado();
+const usuariosBtn = document.querySelector('.salonFama');
 
 
+usuariosBtn.addEventListener("click", () => {
+  let listadoUsuarios = db.map(function(user){
+    return '<li>' + user.nombre + '</li>';
+  })
 
+  document.getElementById('users').innerHTML = listadoUsuarios.join('');
+})
+
+
+
+// const Listado = () => {
+
+//   // const nombresBD = bd.map((el) => el.nombre);
+//   // // console.log(`Listado de alumnos: ${nombresBD}`);
+//   // let array = nombresBD;
+//   // array = {...array}  
+
+ 
+//   let listadoUsuarios = db.map(function(user){
+//     return '<li>' + user.nombre + '</li>';
+//   })
+
+//   document.getElementById('users').innerHTML = listadoUsuarios.join('');
+// }
+
+
+// Listado();
 
