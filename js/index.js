@@ -7,6 +7,8 @@ let res = 0;
 let nombreAlumno = document.querySelector('#nombreAlumno');
 let notaAlumno = document.querySelector('#notaAlumno');
 let calcularBtn = document.querySelector('#calcularBtn');
+let agregarNotaBtn = document.querySelector('#agregarNota');
+
 
 function Alumnos(nombre, nota, res) {
 
@@ -15,11 +17,46 @@ function Alumnos(nombre, nota, res) {
   this.nombre = nombre;
   this.nota = nota;
   this.res = res;
+  
+
+  while (cont < 3) {    
+      
+    agregarNotaBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const input = document.createElement('input')
+      input.classList ='form-control mt-4';
+      input.placeholder = "Ingresa tu nota";
+      document.querySelector('.notaContenedor').append(input);      
+
+      if(cont === 3){
+        agregarNotaBtn.disabled = true;
+      }
+
+      let inputs = document.getElementsByTagName('input')
+      inputs[2].classList.add('nota2') 
+      inputs[3].classList.add('nota3') 
+
+    })
+    cont++;    
+  }
+ 
+ 
+
+ 
+
+  // notaAlumno.value = ""
+
+  
+    
+  // notaAlumno =+ nota.value;
+  // validarMayorA10();
+
+  // this.res = nota / 3;   
 
 
   notaAlumno.addEventListener("change", () => {
     
-    console.log("nota cambiada");
+    // console.log("nota cambiada");
   });
 
 
@@ -28,19 +65,8 @@ function Alumnos(nombre, nota, res) {
     nombre = nombreAlumno.value;
     nota = notaAlumno.value   
 
-    // const input = document.createElement('input')
-    // padre.append(input)
-    while (cont < 3) {
-      nombreAlumno.disabled = true;
-      notaAlumno.value = ""
-      
-      notaAlumno =+ nota.value;
-      validarMayorA10();
-  
-      this.res = nota / 3;       
-      cont++;
-      
-    }
+   
+
 
     if (isNaN(this.res)) {
       console.log("Los campos deben ser de formato numérico");
@@ -54,10 +80,6 @@ function Alumnos(nombre, nota, res) {
     console.log(nombre)
     console.log(this.res)
   })
-
-  
-
- 
 
 
   // datos guardados en LS
