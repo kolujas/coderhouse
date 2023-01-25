@@ -41,32 +41,20 @@
       <h1 class="mt-5">Calcular tu promedio</h1>
       <form>
         <div class="mb-3 col">
-          <label class="form-label">Nombre del alumno</label> 
+          <label class="form-label">Nombre del alumno</label>
           <input type="text" class="form-control" id="nombreAlumno" placeholder="Ingresa tu nombre">
-          <span class="error"></span>
         </div>
         <div class="mb-3 mb-3 col notaContenedor">
           <label placeholder="Ingresa tu nota">Nota del alumno</label>
-          <input type="text" class="form-control mb-3" id="notaAlumno" placeholder="Ingresa tu nota">
-          <span class="error fw-semibold text-danger"></span>
+          <input type="text" class="form-control" id="notaAlumno" placeholder="Ingresa tu nota">
         </div>
-        <div class="mb-3 mb-3 col notaContenedor">
-          <label placeholder="Ingresa tu nota">Nota del alumno</label>
-          <input type="text" class="form-control mb-3" id="notaAlumno2" placeholder="Ingresa tu nota">
-          <span class="error fw-semibold text-danger"></span>
-        </div>
-        <div class="mb-3 mb-3 col notaContenedor">
-          <label placeholder="Ingresa tu nota">Nota del alumno</label>
-          <input type="text" class="form-control mb-3" id="notaAlumno3" placeholder="Ingresa tu nota">
-          <span class="error fw-semibold text-danger"></span>
-        </div>
-        <!-- <button type="button" class="btn btn-primary" id="agregarNota">Agregar más notas</button> -->
+        <button type="button" class="btn btn-primary" id="agregarNota">Agregar más notas</button>
         <button type="submit" class="btn btn-primary" id="calcularBtn">Calcular</button>
 
       </form>
 
 
-      <div class="mostrarDatos mt-4">
+      <div class="mostrarDatos">
         <p class="tuPromedio fs-3 mt-4"></p>
       </div>
 

@@ -10,10 +10,9 @@ let calcularBtn = document.querySelector('#calcularBtn');
 let agregarNotaBtn = document.querySelector('#agregarNota');
 
 
+function Alumnos(nombre, nota, nota2, nota3, res) {
 
-// Funcion constructora
-
-function Alumnos(nombre, nota, nota2, nota3, res) {  
+  
 
   this.nombre = nombre;
   this.nota = nota;
@@ -38,9 +37,9 @@ function Alumnos(nombre, nota, nota2, nota3, res) {
       let inputs = document.getElementsByTagName('input')
       inputs[2].classList.add('nota2') 
       inputs[3].classList.add('nota3') 
-
       nota2 = document.querySelector('.nota2');
       nota3 = document.querySelector('.nota3');
+
       
 
       calcularBtn.addEventListener("click", (e) => {
@@ -49,13 +48,12 @@ function Alumnos(nombre, nota, nota2, nota3, res) {
         nota = notaAlumno.value;
         nota2 = nota2.value;
         nota3 = nota3.value;
-
-       // calculo de promedio
-
+       
         this.res = (Math.floor(nota) + Math.floor(nota2) + Math.floor(nota3)) / 3;
+
         
        
-          if (Math.floor(notaAlumno.value) > 10) {
+          if (Math.floor(nota) > 10) {
             console.log("Los campos deben ser completados por un número válido entre 1 al 10");
             return false;
           }
@@ -101,6 +99,11 @@ function Alumnos(nombre, nota, nota2, nota3, res) {
 
   
 }
+
+
+
+
+
 
 
   let alumno = new Alumnos(Alumnos.nombre, Alumnos.res);
